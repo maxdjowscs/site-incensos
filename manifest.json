@@ -1,0 +1,15 @@
+{
+  "short_name": "CirculusLucis",
+  "name": "Coven Circulus Lucis",
+  "icons": [
+    {
+      "src": "imagens/logo.jpeg",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "theme_color": "#b89a5e"
+}
