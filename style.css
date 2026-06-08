@@ -25,3 +25,7 @@
     acolchoamento: 24px 20px;
     borda-inferior: 1px sólido var(--preto-borda);
 }
+/* Forçar o carrinho a ficar escondido em qualquer tamanho de tela */
+.carrinho-lateral {
+    display: none !important;
+}
