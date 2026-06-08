@@ -1,13 +1,415 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
+    <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circulus Lucis Alquimia Natural</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Circulus Lucis Alquimia Natural — Incensos Artesanais</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Circulus Lucis Alquimia Natural</h1>
-    <p>Site em atualização. Em breve disponível.</p>
+
+<div class="carrinho-toggle" onclick="toggleCarrinho()" id="carrinhoToggle">
+    <span>🛒</span>
+    <span id="carrinhoContador">0</span>
+</div>
+
+<div class="carrinho-lateral" id="carrinhoLateral">
+    <div class="carrinho-header">
+        <h2>Seu Carrinho</h2>
+        <button class="fechar-carrinho" onclick="toggleCarrinho()">✕</button>
+    </div>
+    <div id="listaCarrinho" class="lista-itens"></div>
+    <div class="carrinho-footer">
+        <p id="total" class="total-valor">Total: R$ 0,00</p>
+        <button id="finalizarPedido" class="finalizar">Finalizar via WhatsApp</button>
+    </div>
+</div>
+
+<header class="hero">
+    <div class="hero-inner">
+        <img src="imagens/logo.jpeg" class="logo" alt="Logo Circulus Lucis Alquimia Natural">
+        <p class="tagline-topo">Feito à mão com intenção</p>
+        <h1>Circulus Lucis Alquimia Natural</h1>
+        <p class="subtitulo">
+            Incensos artesanais para harmonizar ambientes,<br>
+            elevar energias e transformar o seu dia.
+        </p>
+        <div class="hero-btns">
+            <a href="#produtos" class="botao botao-ouro">Ver Produtos</a>
+            <a href="https://wa.me/555499791801" class="botao botao-outline" target="_blank">Fale com a Carol</a>
+        </div>
+    </div>
+</header>
+
+<section class="numeros">
+    <div class="numeros-grid">
+        <div class="numero-item">
+            <span class="numero-valor">100%</span>
+            <span class="numero-label">Artesanal</span>
+        </div>
+        <div class="numero-item">
+            <span class="numero-valor">+500</span>
+            <span class="numero-label">Clientes satisfeitos</span>
+        </div>
+        <div class="numero-item">
+            <span class="numero-valor">+20</span>
+            <span class="numero-label">Fragrâncias disponíveis</span>
+        </div>
+        <div class="numero-item">
+            <span class="numero-valor">5★</span>
+            <span class="numero-label">Avaliação média</span>
+        </div>
+    </div>
+</section>
+
+<section class="sobre" id="sobre">
+    <div class="sobre-inner">
+        <div class="sobre-img-wrap">
+            <img src="imagens/logo.jpeg" alt="Bruxa Carol" class="sobre-img">
+        </div>
+        <div class="sobre-texto">
+            <p class="secao-label">Quem somos</p>
+            <h2>Uma bruxa, uma missão e muito amor em cada vareta</h2>
+            <p>A Circulus Lucis Alquimia Natural nasceu da paixão pela magia do cotidiano. Cada incenso é preparado artesanalmente pela Bruxa Carol, com ervas selecionadas, intenção e cuidado — para que você sinta a diferença desde o primeiro acendimento.</p>
+            <p>Acreditamos que rituais simples, como acender um incenso, têm o poder de transformar ambientes, elevar vibrações e reconectar a gente com o que realmente importa.</p>
+            <a href="https://wa.me/555499791801" class="botao botao-ouro" target="_blank">Conversar com a Carol</a>
+        </div>
+    </div>
+</section>
+
+<section class="produtos" id="produtos">
+    <div class="secao-topo">
+        <p class="secao-label">Loja</p>
+        <h2>Nossos Produtos</h2>
+        <p class="secao-desc">Cada peça feita à mão, com ervas naturais e intenção positiva.</p>
+    </div>
+
+    <div class="grid-produtos">
+
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="imagens/varetas.jpg" alt="Varetas Artesanais">
+                <span class="card-badge">Popular</span>
+            </div>
+            <div class="card-corpo">
+                <h3>Varetas Artesanais</h3>
+                <p>Incensos tradicionais em vareta para harmonização diária. Queima longa e aroma suave que preenche o ambiente com leveza.</p>
+                <div class="card-rodape">
+                    <span class="preco">R$ 3,00 unidade</span>
+                    <button onclick="adicionarAoCarrinho('Varetas Artesanais', 3)">+ Adicionar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="imagens/cones.jpg" alt="Cones de Incenso">
+            </div>
+            <div class="card-corpo">
+                <h3>Cones de Incenso</h3>
+                <p>Queima concentrada com aroma intenso. Ideal para meditação, rituais e limpezas energéticas mais profundas.</p>
+                <div class="card-rodape">
+                    <span class="preco">R$ 4,00 unidade</span>
+                    <button onclick="adicionarAoCarrinho('Cone de Incenso', 4)">+ Adicionar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="imagens/esferas.jpg" alt="Esferas Defumadoras">
+                <span class="card-badge">Exclusivo</span>
+            </div>
+            <div class="card-corpo">
+                <h3>Esferas Defumadoras</h3>
+                <p>Defumação profunda para limpeza energética de ambientes. Formato exclusivo com liberação gradual do aroma.</p>
+                <div class="card-rodape">
+                    <span class="preco">R$ 5,00 unidade</span>
+                    <button onclick="adicionarAoCarrinho('Esfera Defumadora', 5)">+ Adicionar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="imagens/bombitas.jpg" alt="Bombitas Defumadoras">
+            </div>
+            <div class="card-corpo">
+                <h3>Bombitas Defumadoras</h3>
+                <p>Purificação intensa e proteção dos ambientes. Indicada para limpezas pesadas e renovação de energia.</p>
+                <div class="card-rodape">
+                    <span class="preco">R$ 7,00 unidade</span>
+                    <button onclick="adicionarAoCarrinho('Bombita Defumadora', 7)">+ Adicionar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="produtos-aviso">✦ Novos produtos em breve — acompanhe nossas novidades pelo WhatsApp</p>
+</section>
+
+<section class="como-usar" id="como-usar">
+    <div class="secao-topo">
+        <p class="secao-label">Guia</p>
+        <h2>Como usar seus incensos</h2>
+        <p class="secao-desc">Simples, seguro e poderoso — veja como aproveitar ao máximo cada produto.</p>
+    </div>
+    <div class="passos-grid">
+        <div class="passo">
+            <div class="passo-num">01</div>
+            <h3>Escolha o ambiente</h3>
+            <p>Prefira locais ventilados, longe de tecidos e materiais inflamáveis. Abra uma janela para circulação do ar.</p>
+        </div>
+        <div class="passo">
+            <div class="passo-num">02</div>
+            <h3>Defina sua intenção</h3>
+            <p>Antes de acender, respire fundo e pense no que você quer atrair ou afastar. A intenção potencializa o efeito.</p>
+        </div>
+        <div class="passo">
+            <div class="passo-num">03</div>
+            <h3>Acenda com cuidado</h3>
+            <p>Aproxime a chama, deixe pegar bem e depois sopre suavemente. Coloque em um suporte adequado.</p>
+        </div>
+        <div class="passo">
+            <div class="passo-num">04</div>
+            <h3>Aprecie o momento</h3>
+            <p>Deixe a fumaça percorrer o ambiente. Nunca deixe incenso aceso sem supervisão ou próximo a crianças e pets.</p>
+        </div>
+    </div>
+</section>
+
+<section class="propriedades" id="propriedades">
+    <div class="secao-topo">
+        <p class="secao-label">Ingredientes</p>
+        <h2>Propriedades dos Incensos</h2>
+        <p class="secao-desc">Cada erva escolhida com propósito. Conheça o poder por trás de cada aroma.</p>
+    </div>
+    <div class="propriedades-grid">
+        
+        <div class="prop-item">
+            <span class="prop-icone">🌿</span>
+            <span class="prop-nome">Alecrim</span>
+            <span class="prop-desc">Clareza mental, prosperidade e proteção energética.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🍃</span>
+            <span class="prop-nome">Arruda</span>
+            <span class="prop-desc">Limpeza energética profunda e quebra de negatividade.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">💜</span>
+            <span class="prop-nome">Lavanda</span>
+            <span class="prop-desc">Paz interior, equilíbrio emocional e tranquilidade.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">✨</span>
+            <span class="prop-nome">Canela</span>
+            <span class="prop-desc">Prosperidade, força de vontade e abertura de caminhos.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🕊️</span>
+            <span class="prop-nome">Rosa Branca</span>
+            <span class="prop-desc">Amor incondicional, harmonia e paz espiritual.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌕</span>
+            <span class="prop-nome">Mirra</span>
+            <span class="prop-desc">Conexão espiritual, proteção e elevação de energia.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌱</span>
+            <span class="prop-nome">Stevia</span>
+            <span class="prop-desc">Adoçamento energético, harmonia nas relações e atração de doçura para a vida.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🥀</span>
+            <span class="prop-nome">Rosas Rubras</span>
+            <span class="prop-desc">Vitalidade, força feminina, coragem para enfrentar desafios e magnetismo.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌼</span>
+            <span class="prop-nome">Calêndula</span>
+            <span class="prop-desc">Alegria de viver, sucesso, brilho pessoal e atração de energia solar positiva.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌿</span>
+            <span class="prop-nome">7 Ervas</span>
+            <span class="prop-desc">Descarrego poderoso, escudo de proteção e quebra de energias muito densas.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🍃</span>
+            <span class="prop-nome">Eucalipto</span>
+            <span class="prop-desc">Purificação do ar, renovação, saúde física e mental, e clareza de pensamentos.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🪵</span>
+            <span class="prop-nome">Palo Santo</span>
+            <span class="prop-desc">Limpeza ancestral, elevação espiritual e atração de boas vibrações.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌟</span>
+            <span class="prop-nome">Anis Estrelado</span>
+            <span class="prop-desc">Despertar da intuição, boa sorte, expansão da consciência e conexão espiritual.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🪴</span>
+            <span class="prop-nome">Boldo</span>
+            <span class="prop-desc">Limpeza profunda do campo áurico, alívio de tensões pesadas e tranquilidade.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌱</span>
+            <span class="prop-nome">Manjericão</span>
+            <span class="prop-desc">Paz de espírito, harmonia familiar, atração de dinheiro e alegria ao ambiente.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">🌹</span>
+            <span class="prop-nome">Rosas Vermelhas</span>
+            <span class="prop-desc">Amor intenso, sedução, paixão e fortalecimento da autoconfiança.</span>
+        </div>
+        <div class="prop-item">
+            <span class="prop-icone">💐</span>
+            <span class="prop-nome">Mix de Flores</span>
+            <span class="prop-desc">Acolhimento, elevação da frequência vibracional, leveza e suavidade.</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="depoimentos" id="depoimentos">
+    <div class="secao-topo">
+        <p class="secao-label">Clientes</p>
+        <h2>O que dizem sobre nós</h2>
+    </div>
+    <div class="depoimentos-grid">
+        <div class="depo-card">
+            <div class="depo-estrelas">★★★★★</div>
+            <p>"As varetas são incríveis! O aroma dura muito tempo e realmente sinto a diferença no ambiente depois que acendo. Já indiquei para toda a família."</p>
+            <div class="depo-autor">
+                <div class="depo-avatar">AM</div>
+                <div>
+                    <strong>Ana Matos</strong>
+                    <span>Cliente desde 2023</span>
+                </div>
+            </div>
+        </div>
+        <div class="depo-card">
+            <div class="depo-estrelas">★★★★★</div>
+            <p>"As bombitas defumadoras transformaram a energia da minha casa. Sinto o ambiente muito mais leve e harmonioso. Produto de altíssima qualidade!"</p>
+            <div class="depo-autor">
+                <div class="depo-avatar">RS</div>
+                <div>
+                    <strong>Renata Silva</strong>
+                    <span>Cliente desde 2024</span>
+                </div>
+            </div>
+        </div>
+        <div class="depo-card">
+            <div class="depo-estrelas">★★★★★</div>
+            <p>"Compro há mais de um ano e nunca decepcionou. A Carol é atenciosa, entrega rápido e os incensos são artesanais de verdade. Recomendo demais!"</p>
+            <div class="depo-autor">
+                <div class="depo-avatar">JF</div>
+                <div>
+                    <strong>Julia Ferreira</strong>
+                    <span>Cliente desde 2026</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq" id="faq">
+    <div class="secao-topo">
+        <p class="secao-label">Dúvidas</p>
+        <h2>Perguntas Frequentes</h2>
+    </div>
+    <div class="faq-lista">
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="toggleFaq(this)">
+                Os incensos are realmente artesanais?
+                <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>Sim! Todos os nossos incensos são produzidos à mão pela Bruxa Carol, com ervas naturais selecionadas. Nenhum produto é industrializado — cada peça carrega cuidado e intenção desde a produção.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="toggleFaq(this)">
+                Como recebo meu pedido?
+                <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>Após finalizar seu pedido pelo WhatsApp, a Carol entra em contato para combinar entrega ou retirada. Trabalhamos com entrega local e envio pelos Correios para todo o Brasil.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="toggleFaq(this)">
+                Posso pedir fragrâncias personalizadas?
+                <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>Com certeza! Temos mais de 20 fragrâncias disponíveis além das que aparecem no site. Entre em contato pelo WhatsApp e a Carol te ajuda a escolher a combinação perfeita para sua necessidade.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="toggleFaq(this)">
+                Quais as formas de pagamento?
+                <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>Aceitamos Pix, transferência bancária e dinheiro em espécie. Para pedidos maiores, consulte condições especiais diretamente com a Carol pelo WhatsApp.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-pergunta" onclick="toggleFaq(this)">
+                É seguro usar em casa com crianças ou animais?
+                <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>Recomendamos sempre usar em ambientes ventilados e nunca deixar incenso aceso sem supervisão. Com crianças e animais, prefira acender em cômodos separados e aguardar a fumaça dissipar antes de permitir acesso.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-final">
+    <div class="cta-inner">
+        <p class="secao-label">Pronta para começar?</p>
+        <h2>Acenda sua intenção hoje</h2>
+        <p>Escolha seus incensos, finalize o pedido e a Bruxa Carol cuida do resto.</p>
+        <div class="hero-btns">
+            <a href="#produtos" class="botao botao-ouro">Ver Produtos</a>
+            <a href="https://wa.me/555499791801" class="botao botao-outline" target="_blank">Chamar no WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <p class="footer-nome">Circulus Lucis Alquimia Natural</p>
+        <p class="footer-desc">Incensos artesanais feitos com intenção e amor.</p>
+        <a href="https://wa.me/555499791801" class="footer-wp" target="_blank">📱 (54) 9979-1801</a>
+        <p class="footer-copy">© 2025 Circulus Lucis Alquimia Natural — Todos os direitos reservados</p>
+        <p class="footer-copy"> Desenvolvido por Macsuel Douglas </p>
+    </div>
+</footer>
+
+<a href="https://wa.me/555499791801" class="whatsapp-fixo" target="_blank">📱 WhatsApp</a>
+
+<script src="script.js"></script>
+<script>
+function toggleCarrinho() {
+    document.getElementById('carrinhoLateral').classList.toggle('aberto');
+}
+
+function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const aberto = item.classList.contains('aberto');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('aberto'));
+    if (!aberto) item.classList.add('aberto');
+}
+</script>
+
 </body>
 </html>
