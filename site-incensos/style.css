@@ -1,10 +1,12 @@
-/* --- CONFIGURAÇÃO FORÇADA PARA O CARRINHO SUMIR --- */
-.carrinho-lateral {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 50px;
 }
 
-/* --- O RESTO DO SEU CSS PODE FICAR ABAIXO --- */
-/* Se quiser manter o restante do seu design, cole aqui embaixo */
+/* O "Botão de Pânico" para o carrinho sumir de vez */
+.carrinho-lateral {
+    display: none !important;
+}
